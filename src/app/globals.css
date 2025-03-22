@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #f1f5f9;
+  --background: #121218;
+  --primary: #64748b;
+  --secondary: #94a3b8;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container {
+  max-width: 80rem; 
+  margin-left: auto; 
+  margin-right: auto; 
+  padding-left: 1rem; 
+  padding-right: 1rem; 
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+  }
+}
+
+.section {
+  padding-top: 6rem; 
+  padding-bottom: 6rem; 
+}
+
+/* Componentes de UI reutilizáveis */
+@layer components {
+  /* Botões */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    color: #f1f5f9;
+  }
+  
+  .btn-primary {
+    background-color: #64748b;
+    color: #f1f5f9;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .btn-primary:hover {
+    background-color: rgba(100, 72, 139, 0.9);
+    box-shadow: 0 0 15px rgba(100, 72, 139, 0.3);
+  }
+  
+  .btn-secondary {
+    background-color: #2a2a3c;
+    color: #f1f5f9;
+    border: 1px solid #383850;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #383850;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid #383850;
+    color: #cbd5e1;
+  }
+  
+  .btn-outline:hover {
+    background-color: #1e1e2a;
+  }
+  
+  /* Cards e Containers */
+  .card {
+    background-color: #1e1e2a;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Navegação */
+  .nav-link {
+    color: #cbd5e1;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: #f1f5f9;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 0.125rem;
+    background-color: #64748b;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Gradientes de texto */
+  .text-gradient {
+    background-image: linear-gradient(to right, #64748b, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Formulários */
+  .form-input {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: #2a2a3c;
+    color: #f1f5f9;
+    border-radius: 0.5rem;
+    border: 1px solid #383850;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-color: rgba(100, 72, 139, 0.5);
+    --tw-ring-opacity: 0.5;
+    border-color: #64748b;
+  }
 }
