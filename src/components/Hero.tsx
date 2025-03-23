@@ -45,8 +45,8 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-md"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-dark-700 shadow-soft">
                 <Image
-                  src="/profile.png"
-                  alt="Julio Barreto"
+                  src="https://avatars.githubusercontent.com/u/28211705?v=4"
+                  alt="Julio Cesar"
                   fill
                   style={{ objectFit: "cover" }}
                   priority
